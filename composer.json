@@ -9,5 +9,13 @@
             "email": "j.partyka@weblogic.pl"
         }
     ],
-    "require": {}
+    "require": {},
+    "autoload": {
+        "classmap": [
+            
+        ],
+        "psr-0": {
+            "WebLogic\\sslstore\\": "src/"
+        }
+    }
 }
