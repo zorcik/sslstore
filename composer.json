@@ -1,0 +1,13 @@
+{
+    "name": "weblogic/sslstore",
+    "description": "Wrapper around sslstore API classes",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jacek",
+            "email": "j.partyka@weblogic.pl"
+        }
+    ],
+    "require": {}
+}
