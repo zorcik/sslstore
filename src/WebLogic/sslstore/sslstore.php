@@ -2,6 +2,70 @@
 
 namespace WebLogic\sslstore;
 
+use WebLogic\sslstore\abstractions\apiresponse;
+use WebLogic\sslstore\abstractions\apirequest;
+use WebLogic\sslstore\abstractions\curlresponse;
+
+use WebLogic\sslstore\requests\csr_request;
+use WebLogic\sslstore\requests\free_claimfree_request;
+use WebLogic\sslstore\requests\free_cuinfo_request;
+use WebLogic\sslstore\requests\health_validate_request;
+use WebLogic\sslstore\requests\health_validate_token_request;
+use WebLogic\sslstore\requests\order_agreement_request;
+use WebLogic\sslstore\requests\order_approverlist_request;
+use WebLogic\sslstore\requests\order_certificaterevokerequest_request;
+use WebLogic\sslstore\requests\order_changeapproveremail_request;
+use WebLogic\sslstore\requests\order_download_request;
+use WebLogic\sslstore\requests\order_download_zip_request;
+use WebLogic\sslstore\requests\order_inviteorder_request;
+use WebLogic\sslstore\requests\order_modified_summary_request;
+use WebLogic\sslstore\requests\order_neworder_request;
+use WebLogic\sslstore\requests\order_neworder_request_freeproduct;
+use WebLogic\sslstore\requests\order_pmr_request;
+use WebLogic\sslstore\requests\order_query_request;
+use WebLogic\sslstore\requests\order_refundrequest_request;
+use WebLogic\sslstore\requests\order_refundstatus_request;
+use WebLogic\sslstore\requests\order_reissue_request;
+use WebLogic\sslstore\requests\order_resend_request;
+use WebLogic\sslstore\requests\order_status_request;
+use WebLogic\sslstore\requests\order_validate_request;
+use WebLogic\sslstore\requests\order_vulnerabilityscanrequest_request;
+use WebLogic\sslstore\requests\product_query_request;
+use WebLogic\sslstore\requests\setting_cancelnotification_request;
+use WebLogic\sslstore\requests\setting_setordercallback_request;
+use WebLogic\sslstore\requests\setting_setpricecallback_request;
+use WebLogic\sslstore\requests\setting_settemplate_request;
+use WebLogic\sslstore\requests\ssl_validation_request;
+use WebLogic\sslstore\requests\user_account_detail_request;
+use WebLogic\sslstore\requests\user_activate_request;
+use WebLogic\sslstore\requests\user_add_request;
+use WebLogic\sslstore\requests\user_deactivate_request;
+use WebLogic\sslstore\requests\user_newuser_request;
+use WebLogic\sslstore\requests\user_query_request;
+use WebLogic\sslstore\requests\whois_request;
+
+use WebLogic\sslstore\responses\csr_response;
+use WebLogic\sslstore\responses\free_claimfree_response;
+use WebLogic\sslstore\responses\free_cuinfo_response;
+use WebLogic\sslstore\responses\health_validate_response;
+use WebLogic\sslstore\responses\health_validate_token_response;
+use WebLogic\sslstore\responses\order_agreement_response;
+use WebLogic\sslstore\responses\order_approverlist_response;
+use WebLogic\sslstore\responses\order_download_response;
+use WebLogic\sslstore\responses\order_download_zip_response;
+use WebLogic\sslstore\responses\order_modified_summary_response;
+use WebLogic\sslstore\responses\order_pmr_response;
+use WebLogic\sslstore\responses\order_query_response;
+use WebLogic\sslstore\responses\order_response;
+use WebLogic\sslstore\responses\order_vulnerabilityscanrequest_response;
+use WebLogic\sslstore\responses\ssl_validation_response;
+use WebLogic\sslstore\responses\user_account_detail_response;
+use WebLogic\sslstore\responses\user_newuser_response;
+use WebLogic\sslstore\responses\user_query_response;
+use WebLogic\sslstore\responses\user_subuser_response;
+use WebLogic\sslstore\responses\whois_response;
+
+
 set_time_limit(500);
 /**
  * User: Parag Mehta<parag@paragm.com>
@@ -600,31 +664,5 @@ class sslstore
         $user_account_detail_request->IPAddress = $apidetails->IPAddress;
 
         return $this->postToCurl($url, $user_account_detail_request, $resp);
-    }
-}
-
-class messagehelper
-{
-    static function writeinfo($msg)
-    {
-        echo '<strong>' . $msg . '</strong><br/>';
-        echo "\n";
-    }
-
-    static function writeerror($msg)
-    {
-        echo '<strong><span style="color:red">';
-        echo '<pre>';
-        var_dump($msg);
-        echo '</pre>';
-        echo '</span></strong><br/>';
-        echo "\n";
-    }
-
-    static function writevarinfo($msg)
-    {
-        echo '<pre>';
-        var_dump($msg);
-        echo "</pre></br>\n";
     }
 }
