@@ -11,11 +11,8 @@
     ],
     "require": {},
     "autoload": {
-        "classmap": [
-            
-        ],
         "psr-0": {
-            "WebLogic\\sslstore\\": "src/"
+            "WebLogic\\sslstore\\": "src/WebLogic/sslstore/"
         }
     }
 }
