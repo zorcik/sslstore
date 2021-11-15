@@ -81,6 +81,7 @@ class sslstore
     public static $LOG_ALLAPICALLS = true;
 
     private $_apimode = 'TEST';
+    private $_euORcom = 'com';
     private $_partnerCode = '';
     private $_authToken = '';
     private $_token = '';
@@ -211,6 +212,13 @@ class sslstore
 
             $responseData->AuthResponse->isError = true;
             $responseData->AuthResponse->Message = array($response->error);
+
+            if (stristr($response->error, 'not resolve host') && $this->_euORcom == 'com')
+            {
+                $this->changeToEU();
+                return $this->postToCurl($url, $requestData, $responseData, $HttpMethod);
+            }
+
             return $responseData;
         }
     }
@@ -218,10 +226,22 @@ class sslstore
     public function getURL()
     {
         if (strtoupper($this->_apimode) == 'LIVE') {
-            return 'https://api.thesslstore.com/rest';
+            if ($this->_euORcom == 'com')
+            {
+                return 'https://api.thesslstore.com/rest';
+            }
+            else
+            {
+                return 'https://api.thesslstore.eu/rest';
+            }
         } else {
             return 'https://sandbox-wbapi.thesslstore.com/rest';
         }
+    }
+
+    public function changeToEU()
+    {
+        $this->_euORcom = 'eu';
     }
 
     /**
