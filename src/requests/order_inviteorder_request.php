@@ -6,18 +6,18 @@ use WebLogic\sslstore\abstractions\baserequest;
 
 class order_inviteorder_request extends baserequest
 {
-    public $PreferVendorLink;
+//    public $PreferVendorLink;
     public $ProductCode;
-    public $ExtraProductCode;
-    public $ServerCount;
+//    public $ExtraProductCode;
+//    public $ServerCount;
     public $RequestorEmail;
-    public $ExtraSAN;
+//    public $ExtraSAN;
     public $CustomOrderID;
     public $ValidityPeriod;
-    public $AddInstallationSupport;
-    public $SignatureHashAlgorithm;
-    public $EmailLanguageCode;
+//    public $AddInstallationSupport;
+//    public $SignatureHashAlgorithm;
+//    public $EmailLanguageCode;
     public $PreferSendOrderEmails;
-    public $CertTransparencyIndicator;
-    public $DateTimeCulture;
+//    public $CertTransparencyIndicator;
+//    public $DateTimeCulture;
 }
